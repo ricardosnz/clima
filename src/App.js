@@ -8,6 +8,9 @@ import WeatherList from './components/WeatherList';
 import useFetch from './hooks/useFetch';
 import { apiKey, baseUrl } from './config';
 
+// API Key: 00fa81f2b1b7c6d214d7e892c5ae966f
+// Secret Key: ea1a25661eca869e66b2fa6c86cf6c2e
+
 function App() {
   const { data, error, inProgress, setUrl } = useFetch();
   console.log(data);
