@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body, li, button, input{
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
 p {
   margin-top: 5px;
 }
@@ -11,4 +15,48 @@ p::first-letter {
 }
 li {
   list-style: none;
+  /* background-color: rgb(68, 0, 255); */
 }
+input, button{
+  border: none;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: rgba(68, 0, 255, 0.59) !important;
+  backdrop-filter: blur(10px);
+}
+
+
+.carta{
+  background-color: rgba(35, 0, 130, 0.734);
+  border-radius: 20px;
+  padding: 18px;
+}
+.carta__head{
+  display: flex;
+  align-items: center;
+}
+.carta__img{
+  min-width: 150px;
+}
+.carta__temp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

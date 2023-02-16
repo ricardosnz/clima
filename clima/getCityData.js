@@ -2,12 +2,12 @@ import { apiKey, baseUrl } from './config'
 
 export const getCity = async ({city}) => {
   try {
-    const response = await fetch(`${baseUrl}?q=${city}&cnt=5&appId=${apiKey}&units=metric&lang=es`)
+    const response = await fetch(`${baseUrl}?q=${city}&cnt=6&appId=${apiKey}&units=metric&lang=es`)
     const json = await response.json()
     const { list } = json
     if(!list) throw new Error('No hay resultados')
-    const { deg, feels_like, presure, speed, sunrise, sunset, ...rest } = data
-    return rest
+    const data = list?.map(({deg, feels_like, presure, speed, sunrise, sunset, ...rest}) => ({...rest}))
+    return data
   }catch(error){
     return {error}
   }
