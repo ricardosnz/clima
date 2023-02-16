@@ -7,13 +7,13 @@ const useWeather = (initialCity) => {
 
   const [city, setCity] = useState(localStorageCity)
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const selectCity = ({ city }) => {
     setCity(city)
     localStorage.setItem("city", city)
-  }
+  }  
 
   useEffect(() => {
     if (!city) return;
@@ -24,7 +24,6 @@ const useWeather = (initialCity) => {
       .finally(() => setLoading(false))
   }, [city])
   
-
   return { data, error, loading, city, selectCity };
 };
 

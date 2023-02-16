@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-body, li, button, input{
+body,
+li,
+button,
+input {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
@@ -17,7 +20,8 @@ li {
   list-style: none;
   /* background-color: rgb(68, 0, 255); */
 }
-input, button{
+input,
+button {
   border: none;
   outline: none;
 }
@@ -27,36 +31,72 @@ button {
   backdrop-filter: blur(10px);
 }
 
-
-.carta{
+.weather {
   background-color: rgba(35, 0, 130, 0.734);
+
   border-radius: 20px;
   padding: 18px;
 }
-.carta__head{
+.weather__head {
   display: flex;
   align-items: center;
+  gap: 24px;
 }
-.carta__img{
-  min-width: 150px;
+.weather__container-img {
+  position: relative;
+  min-width: 100px;
+  min-height: 100px;
 }
-.carta__temp{
+.weather__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: scale(1.2);
+}
+.weather__resume {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+}
+.weather__day{
+  font-weight: 600;
+  font-size: 18px;
+}
+.weather__general-temp{
+  font-weight: 600;
+}
+.weather__description, .weather__minmax{
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 400;
+  opacity: .9;
+}
+.weather__minmax{
+  opacity: .8;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.weather__temp{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+}
+.weather__item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather__per{
+  font-size: 15px;
+  font-weight: 500;
+  opacity: .9;
+}
+.weather__subtitle{
+  font-size: 12px;
+  font-weight: 400;
+  opacity: .8;
+}
