@@ -2,9 +2,8 @@ import { useEffect, useState, useReducer } from 'react';
 
 import {getCity} from './getCityData'
 
-
-
-const useCities = ({city}) => {
+const useWeather = ({initialCity= 'madrid'}) => {
+  const [city, setCity] = useState(initialCity)
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -18,8 +17,9 @@ const useCities = ({city}) => {
       .finally(() => setLoading(false))
   }, [city]);
 
-  return { data, error, loading };
+  
+  return { data, error, loading, city, selectCity: ({city}) => setCity(city) };
 };
 
-export default useCities;
+export default useWeather;
  

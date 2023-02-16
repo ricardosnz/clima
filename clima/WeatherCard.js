@@ -1,30 +1,20 @@
 import React from 'react';
 import { Card } from '../styles/Card';
 
-const WeatherCard = (props) => {
-  const {
-    min,
-    max,
-    day,
-    night,
-    eve,
-    morn,
-    dt,
-    hum,
-    gust,
-    clouds,
-    rain,
-    main,
-    icon,
-    descrip,
-  } = props;
- 
+const WeatherCard = ({ temp, weather, dt, hum, gust, clouds, rain }) => {
+  const { min, max, day, night, eve, morn } = temp;
+  const { main: title, description, icon } = weather[0];
   const date = new Date(dt);
+
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const formatDate = `${day}/${month}/${year}`;
 
   return (
     <Card>
       <p>
-        {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()} | dia {main}
+        {formatDate} | dia {title}
       </p>
       <div className="item-temp">
         <div>
@@ -37,8 +27,8 @@ const WeatherCard = (props) => {
         </p>
       </div>
       <p>
-        {descrip}. Temperatura minima {Math.round(min)}° y temperatura maxima{' '}
-        {Math.round(max)}°
+        {description}. Temperatura minima {Math.round(min)}° y temperatura
+        maxima {Math.round(max)}°
       </p>
       <p>
         Humedad {hum}% | Nubes {clouds}%

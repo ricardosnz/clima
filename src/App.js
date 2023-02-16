@@ -13,7 +13,7 @@ import { apiKey, baseUrl } from './config';
 
 function App() {
   const { data, error, inProgress, setUrl } = useFetch();
-
+  console.log(data)
   return (
     <Main>
       <CitySelector
