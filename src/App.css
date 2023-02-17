@@ -18,7 +18,6 @@ p::first-letter {
 }
 li {
   list-style: none;
-  /* background-color: rgb(68, 0, 255); */
 }
 input,
 button {
@@ -27,16 +26,62 @@ button {
 }
 button {
   cursor: pointer;
-  background-color: rgba(68, 0, 255, 0.59) !important;
-  backdrop-filter: blur(10px);
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app__background{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.app__weather{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.form-city{
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;  
+}
+.form-city__input, .form-city__button{    
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 16px 20px;
+  background-color: rgba(68, 0, 255, 0.912);
+  backdrop-filter: blur(6px);
+  opacity: .8;
+  transition: opacity 400ms;  
+}
+.form-city__input:hover, .form-city__input:focus, .form-city__input:hover ~ .form-city__button, .form-city__button:hover{
+  opacity: 1;
 }
 
 .weather {
-  background-color: rgba(35, 0, 130, 0.734);
-
+  background-color: rgba(68, 0, 255, 0.734);
   border-radius: 20px;
   padding: 18px;
+  backdrop-filter: blur(6px);
 }
+
 .weather__head {
   display: flex;
   align-items: center;
@@ -76,13 +121,11 @@ button {
 .weather__minmax{
   opacity: .8;
 }
-
-
 .weather__temp{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 5px;
+  gap: 25px;
   width: 100%;
 }
 .weather__item{
@@ -100,3 +143,24 @@ button {
   font-weight: 400;
   opacity: .8;
 }
+
+.loading{
+  display: flex;
+  gap: 35px;
+  margin-top: 40px;
+}
+.loading__point{
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(68, 0, 255, 0.912);
+  backdrop-filter: blur(6px);
+  animation: load alternate 400ms infinite;
+  animation-delay: var(--delay);
+}
+@keyframes load{
+  from{
+    transform: translateY(30px);
+  }
+}
+
+

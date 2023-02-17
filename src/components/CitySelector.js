@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
-import { FormCity, InputCity, ButtonCity } from '../styles/Selector';
+import React from 'react';
+import {Search} from './Icons'
 
-const CitySelector = ({ onSelectButtonClick }) => {
-  const [city, setCity] = useState(null);
-  const onSubmitCity = (e) => {
-    e.preventDefault();
-    onSelectButtonClick(city);
+const CitySelector = ({ searchInput, updateSearch, getWeathers }) => {
+
+  const handleChange = ({target}) => {
+    const newSearch = target.value
+    updateSearch(newSearch)
+    getWeathers({ search: newSearch })
+  }
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    getWeathers({ searchInput })
   };
-  return (
-    <>
-      <h1>Escribe tu ciudad</h1>
-      <FormCity onSubmit={onSubmitCity}>
-        <InputCity
-          type="text"
-          value={city}
-          placeholder="Madrid..."
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <ButtonCity>Buscar</ButtonCity>
-      </FormCity>
-    </>
+
+  return (    
+    <form onSubmit={onSubmit} className="form-city">
+      <input name="search" className="form-city__input" placeholder="madrid, miami, tokio..." value={searchInput} onChange={handleChange} />
+      <button className="form-city__button"><Search /></button>
+    </form>
   );
 };
 
 export default CitySelector;
+
+
