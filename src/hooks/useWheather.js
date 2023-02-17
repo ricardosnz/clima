@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import { cityImages } from './constants';
-import { searchWeather } from './getCityData';
+import { cityImages } from '../services/constants';
+import { searchWeather } from '../services/weather';
 import debounce from 'just-debounce-it';
 
 const useWeather = () => {

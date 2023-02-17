@@ -80,7 +80,15 @@ button {
   border-radius: 20px;
   padding: 18px;
   backdrop-filter: blur(6px);
+
+  animation: cart-scale 300ms ease-in;
 }
+@keyframes cart-scale{
+  to{
+    transform: translateY(50px);
+  }
+}
+
 
 .weather__head {
   display: flex;
