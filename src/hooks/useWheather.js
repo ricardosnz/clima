@@ -4,12 +4,11 @@ import { searchWeather } from '../services/weather';
 import debounce from 'just-debounce-it';
 
 const useWeather = () => {
-  const localStorageCity = localStorage.getItem('city') || "madrid"
-
+  const localStorageCity = localStorage.getItem('city') || 'madrid';
   const [searchInput, setSearchInput] = useState(localStorageCity);
   const [weathers, setWeathers] = useState(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const [image, setImage] = useState(cityImages[0].url);
 
@@ -23,7 +22,6 @@ const useWeather = () => {
         .finally(() => setLoading(false));
 
       localStorage.setItem('city', search);
-      console.log(search);
       const updateImage =
         cityImages[Math.round(Math.random() * cityImages.length - 1)].url;
       setImage(updateImage);
