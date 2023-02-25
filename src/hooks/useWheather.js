@@ -26,7 +26,7 @@ const useWeather = () => {
         cityImages[Math.round(Math.random() * cityImages.length - 1)].url;
       setImage(updateImage);
     }, 800),
-    []
+    [weathers]
   );
 
   useEffect(() => {

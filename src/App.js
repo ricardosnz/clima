@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <img src={image} alt="" className="app__background" />
+      <img src={image} className="app__background" />
       <CitySelector
         searchInput={searchInput}
         updateSearch={updateSearch}
